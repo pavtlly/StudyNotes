@@ -37,7 +37,7 @@ end
 li = List.new()
 List.pushBack(li, 17)
 List.pushBack(li, -2)
-List.pushFront(li, 33   )
+List.pushFront(li, 33)
 List.pushFront(li, 99)
 local x = List.popBack(li)
 print(x)

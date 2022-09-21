@@ -22,11 +22,12 @@ print(fun(1,2,2,3))
 local a = nil
 local b = false
 local c = 0
+local d = ""
 if a or b then
-    print("YES")
-else
-    print("NO")
+    print("nil or false")
 end
+if c then print("0") end
+if d then print("empty string") end
 
 -- 4. lua字符串是不可变值, 不能像C语言那样直接修改字符串中某个字符
 -- 而是应该根据修改要求来创建一个新的字符串
@@ -60,7 +61,13 @@ print(stu["name"], stu.name)
 a = {}; a.x = 1; a.y = 0
 b = {}; b.x = 1; b.y = 0
 c = a
-print(a == b, a == c)
+print(a, b, c, a == b, a == c)
+
+local function f1()
+    print("9981")
+end
+local f2 = f1
+print(f1, f2)
 
 -- 10. and 和 or 都使用"短路求值"
 -- a and b or c 相当于C语言中 a ? b : c
@@ -101,7 +108,7 @@ for k, v in ipairs(students) do
     print(v.name, v.score)
 end
 
--- 14. 函数遵循词法定界
+-- 14. 函数遵循词法定界(静态域)
 function newCounter()
     local count = 0
     return function()
@@ -119,7 +126,6 @@ c2 = newCounter()
 c2()
 c1()
 c2()
-
 
 function create(n)
     local function foo1()
